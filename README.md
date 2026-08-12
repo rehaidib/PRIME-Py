@@ -1,6 +1,5 @@
 # PRIME-Py: Python Repository Inspection and Metric Extraction Dataset
 
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.20094326.svg)](https://doi.org/10.5281/zenodo.20094326)
 [![License: CC BY 4.0](https://img.shields.io/badge/License-CC%20BY%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by/4.0/)
 [![Python 3.11](https://img.shields.io/badge/python-3.11-blue.svg)](https://www.python.org/downloads/release/python-3110/)
 
@@ -9,10 +8,12 @@ Replication package for two studies:
 > **[Function level]** Alehaidib R, Ghoneim A, Alrashoud M. 2026. Large-Scale Empirical Study
 > of Code Smell and Anti-Pattern Detection in Python Open-Source Software.
 > *PeerJ Computer Science*. DOI: [paper DOI to be added on acceptance]
+> Dataset (v.1.0): [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.20094326.svg)](https://doi.org/10.5281/zenodo.20094326)
 
 > **[Class level]** Alehaidib R, Ghoneim A, Alrashoud M. 2026. Metric Thresholds for God Class
 > and Large Class Detection in Python: A Human-Annotated Validation Study.
 > *Software Quality Journal*. DOI: [paper DOI to be added on acceptance]
+> Dataset (v.2.0): [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.21903177.svg)](https://doi.org/10.5281/zenodo.21903177)
 
 ---
 
