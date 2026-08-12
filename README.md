@@ -70,9 +70,8 @@ nested definitions.
 
 The dataset files are deposited at Zenodo (open access, CC BY 4.0):
 
-**https://doi.org/10.5281/zenodo.20094326**
-
 ### Function level
+**https://doi.org/10.5281/zenodo.20094326**
 
 | File | Rows | Description |
 |---|---|---|
@@ -82,6 +81,7 @@ The dataset files are deposited at Zenodo (open access, CC BY 4.0):
 | `gold_standard.parquet` | 192 | Manually annotated structural PDS subset |
 
 ### Class level
+**https://doi.org/10.5281/zenodo.21903177**
 
 | File | Rows | Description |
 |---|---|---|
