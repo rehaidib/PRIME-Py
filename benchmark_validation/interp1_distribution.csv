@@ -1,0 +1,2 @@
+Smell,Bench pos median (abs),PRIME pos median (abs),p (abs),Bench pos pctile,PRIME pos pctile,p (pctile),r (pctile),Unit note,Interpretation
+Long Method,63.0,24.0,0.0,87.1,87.6,0.045,0.082,loc=all lines; nloc=non-comment lines only,⚠️  Different percentile positions — document corpus construction difference

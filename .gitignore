@@ -1,0 +1,5 @@
+data/Function_Level/*.parquet
+data/Class_Level/*.parquet
+output/
+__pycache__/
+.DS_Store

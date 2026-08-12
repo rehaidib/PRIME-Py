@@ -1,0 +1,3 @@
+Smell,Threshold,N,PRIME rate %,Benchmark rate %,Kappa,F1,Interpretation
+Long Method,unadjusted,93737,39.3,7.0,0.207,0.301,❌ Fair/Poor
+Long Method,"adjusted (÷3.0, corpus-derived)",93737,39.3,39.3,1.0,1.0,✅ Substantial

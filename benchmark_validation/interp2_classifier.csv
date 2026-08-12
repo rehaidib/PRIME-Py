@@ -1,0 +1,2 @@
+Smell,Bench CV F1,Transfer Kappa,Transfer F1,Interpretation,Note
+Long Method,0.891,0.263,0.32,❌ Fair/Poor,scloc≈nloc (both exclude comments and blanks). loc/lloc also mapped to nloc as approximation.
