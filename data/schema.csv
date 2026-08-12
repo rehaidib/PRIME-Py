@@ -1,56 +1,59 @@
-column,dtype,non_null,null,example
-project_name,str,1554896,0,openbmc_openbmc-build-scripts
-file_path,str,1554896,0,/Users/reemehaidib/PhD_Dataset/Projects/PRIME_Repos/10922465_openbmc_openbmc-build-scripts/config/gitlint/multiple_change_id.py
-function_name,str,1554896,0,validate
-cyclomatic_complexity,int64,1554896,0,4
-nloc,int64,1554896,0,13
-num_parameter,int64,1554896,0,2
-num_token,int64,1554896,0,51
-start_line,int64,1554896,0,8
-end_line,int64,1554896,0,21
-class_name,str,1056046,498850,DuplicateChangeIdEntries
-class_modifiers,str,1056046,498850,public
-class_implements,float64,1554896,0,1.0
-class_extends,float64,1554896,0,1.0
-function_params,str,1554896,0,"[""self"", ""commit""]"
-function_return_type,str,368535,1186361,Iterable[str]
-function_body_line_type,str,1554896,0,"{""FunctionDef"": 1, ""Assign"": 1, ""If"": 1, ""Return"": 2}"
-function_num_variables,float64,1554896,0,1.0
-function_num_functions,float64,1554896,0,3.0
-function_num_lines,float64,1554896,0,14.0
-incoming_function_count,float64,1554896,0,0.0
-incoming_function_names,str,1554896,0,[]
-outgoing_function_count,float64,1554896,0,3.0
-outgoing_function_names,str,1554896,0,"[""len"", ""startswith"", ""RuleViolation""]"
-function_body,str,1554896,0,"def validate(self, commit):
-        change_ids = [
-            x for x in commit.message.body if x.startswith(""Change-Id:"")
-        ]
-        if len(change_ids) > 1:
-            return [
-                RuleViolation(
-                    self.id,
-                    ""Multiple Change-Ids found in commit message body"",
-                    change_ids,
-                )
-            ]
-
-        return None"
-lexical_representation,str,1554896,0,"The function (validate) is defined within the public class 'DuplicateChangeIdEntries', which inherits from another class and implements an interface. It starts at line 8 and ends at line 21, containing 13 lines of code with a cyclomatic complexity of 4. This indicates moderate complexity. It takes 2 parameters: commit. The function returns a value (no type annotation provided). The function body contains 1 conditional branch, 1 assignment, and 2 return statements. It calls 3 functions internally: len, startswith, RuleViolation. No other functions in this file call this function."
-codet5_summary,str,1554896,0,How to detect multiple Change-Ids in a commit message?
-final_lexical,str,1554896,0,How to detect multiple Change-Ids in a commit message?
-cs_long_method,int8,1554896,0,0
-cs_high_cc,int8,1554896,0,0
-cs_long_params,int8,1554896,0,0
-code_smell_label,int8,1554896,0,0
-ap_spaghetti,int8,1554896,0,0
-ap_high_fanout,int8,1554896,0,0
-ap_god_class,int8,1554896,0,0
-anti_pattern_label,int8,1554896,0,0
-pn_invalid_name,int8,1554896,0,0
-pn_bloated_name,int8,1554896,0,0
-poor_naming_label,int8,1554896,0,0
-pd_missing_doc,int8,1554896,0,1
-pd_trivial_doc,int8,1554896,0,0
-pd_is_dunder,int8,1554896,0,0
-poor_doc_label,int8,1554896,0,1
+level,column,dtype,non_null,null,example
+function,project_name,str,1554896,0,openbmc_openbmc-build-scripts
+function,file_path,str,1554896,0,/Users/reemehaidib/PhD_Dataset/Projects/PRIME_Repos/10922465_openbmc_openbmc-build-scripts/config/gitlint/multiple_chang ...
+function,function_name,str,1554896,0,validate
+function,cyclomatic_complexity,int64,1554896,0,4
+function,nloc,int64,1554896,0,13
+function,num_parameter,int64,1554896,0,2
+function,num_token,int64,1554896,0,51
+function,start_line,int64,1554896,0,8
+function,end_line,int64,1554896,0,21
+function,class_name,str,1056046,498850,DuplicateChangeIdEntries
+function,class_modifiers,str,1056046,498850,public
+function,class_implements,float64,1554896,0,1.0
+function,class_extends,float64,1554896,0,1.0
+function,function_params,str,1554896,0,"[""self"", ""commit""]"
+function,function_return_type,str,368535,1186361,Iterable[str]
+function,function_body_line_type,str,1554896,0,"{""FunctionDef"": 1, ""Assign"": 1, ""If"": 1, ""Return"": 2} ..."
+function,function_num_variables,float64,1554896,0,1.0
+function,function_num_functions,float64,1554896,0,3.0
+function,function_num_lines,float64,1554896,0,14.0
+function,incoming_function_count,float64,1554896,0,0.0
+function,incoming_function_names,str,1554896,0,[] ...
+function,outgoing_function_count,float64,1554896,0,3.0
+function,outgoing_function_names,str,1554896,0,"[""len"", ""startswith"", ""RuleViolation""] ..."
+function,function_body,str,1554896,0,"def validate(self, commit): change_ids = [ x for x in commit.message.body if x.startswith(""Change-Id:"") ] if len(change_ ..."
+function,lexical_representation,str,1554896,0,"The function (validate) is defined within the public class 'DuplicateChangeIdEntries', which inherits from another class ..."
+function,codet5_summary,str,1554896,0,How to detect multiple Change-Ids in a commit message?
+function,final_lexical,str,1554896,0,How to detect multiple Change-Ids in a commit message?
+function,cs_long_method,int8,1554896,0,0
+function,cs_high_cc,int8,1554896,0,0
+function,cs_long_params,int8,1554896,0,0
+function,code_smell_label,int8,1554896,0,0
+function,ap_spaghetti,int8,1554896,0,0
+function,ap_high_fanout,int8,1554896,0,0
+function,ap_god_class,int8,1554896,0,0
+function,anti_pattern_label,int8,1554896,0,0
+function,pn_invalid_name,int8,1554896,0,0
+function,pn_bloated_name,int8,1554896,0,0
+function,poor_naming_label,int8,1554896,0,0
+function,pd_missing_doc,int8,1554896,0,1
+function,pd_trivial_doc,int8,1554896,0,0
+function,pd_is_dunder,int8,1554896,0,0
+function,poor_doc_label,int8,1554896,0,1
+class,project_name,str,200977,0,openbmc_openbmc-build-scripts
+class,file_path,str,200977,0,/Users/reemehaidib/PhD_Dataset/Projects/PRIME_Repos/10922465_openbmc_openbmc-build-scripts/config/gitlint/multiple_chang ...
+class,class_name,str,200977,0,DuplicateChangeIdEntries
+class,total_nloc,int64,200977,0,13
+class,n_methods,int64,200977,0,1
+class,n_public,int64,200977,0,1
+class,total_cc,int64,200977,0,4
+class,mean_cc,float64,200977,0,4.0
+class,max_cc,int64,200977,0,4
+class,total_params,int64,200977,0,2
+class,n_private,int64,200977,0,0
+class,class_start,int64,200977,0,8
+class,class_end,int64,200977,0,21
+class,god_class,int64,200977,0,0
+class,large_class,int64,200977,0,0
+class,anti_pattern_label,int64,200977,0,0
