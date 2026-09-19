@@ -6,3 +6,4 @@ __pycache__/
 analysis/revision/outputs/
 analysis/revision/ast_cache/
 analysis/revision/__pycache__/
+analysis/revision/14_repository_manifest.py
