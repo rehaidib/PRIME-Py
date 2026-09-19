@@ -3,3 +3,6 @@ data/Class_Level/*.parquet
 output/
 __pycache__/
 .DS_Store
+analysis/revision/outputs/
+analysis/revision/ast_cache/
+analysis/revision/__pycache__/
