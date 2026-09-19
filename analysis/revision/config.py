@@ -15,7 +15,7 @@ from pathlib import Path
 CONFIG_VERSION = 3   # scripts check this to catch stale-file mixups
 
 # ---------------------------------------------------------------- paths
-DATA_DIR = Path("/Users/reemehaidib/PhD_Dataset/PRIME_Output/labelled")
+DATA_DIR = Path("/path/to/your/data") #enter your actual path here
 
 # TODO: re-apply your actual file names here if you changed them.
 SPLIT_FILES = {
