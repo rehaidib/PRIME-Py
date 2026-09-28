@@ -6,7 +6,7 @@
 Replication package for two studies:
 
 > **[Function level]** Alehaidib R, Ghoneim A, Alrashoud M. 2026. Large-Scale Empirical Study
-> of Code Smell and Anti-Pattern Detection in Python Open-Source Software.
+> of Structural Poor Design Symptoms in Python Open-Source Software.
 > *PeerJ Computer Science*. DOI: [paper DOI to be added on acceptance]
 > Dataset (v.1.0): [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.20094326.svg)](https://doi.org/10.5281/zenodo.20094326)
 
@@ -35,8 +35,15 @@ The dataset is published at two levels of granularity:
 Both levels are published together so that the provenance chain from function
 rows to class units remains inspectable and reproducible.
 
-This package addresses the **structural subset of PDS** — Code Smell and
-Anti-Pattern. Lexical PDS types (Poor Naming and Poor Documentation) will be
+This package addresses the **structural subset of function-level PDS** — Code
+Smell and Structural Complexity Symptoms (SCS).
+
+> **Naming changelog:** the category previously documented as *Anti-Pattern* is
+> now titled *Structural Complexity Symptoms* in the function-level paper, and
+> the Spaghetti Code detail corresponds to *Excessive Branching*. Column names
+> (`ap_spaghetti`, `ap_high_fanout`, `anti_pattern_label`) are unchanged; the
+> measured properties are function-level metric symptoms associated with
+> anti-patterns, not detected anti-pattern instances. Lexical PDS types (Poor Naming and Poor Documentation) will be
 investigated in future work.
 
 ### Function-level structural PDS sub-types
@@ -46,8 +53,11 @@ investigated in future work.
 | Code Smell | Long Method | NLOC > 14 (75th pct of training corpus) | Chen et al. (2018) IST |
 | Code Smell | High Cyclomatic Complexity | CC > 10 | McCabe (1976) IEEE TSE |
 | Code Smell | Long Parameter List | params > 5 (non-self) | Chen et al. (2018) IST |
-| Anti-Pattern | Spaghetti Code | branch count > 12 | McCabe (1976) / Pylint R0912 |
-| Anti-Pattern | High Fan-Out | outgoing calls > 15 | Palomba et al. (2018) EMSE |
+| Structural Complexity Symptoms | Excessive Branching | branch statements > 12 | Pylint R0912 default; Brown (1998) |
+| Structural Complexity Symptoms | High Fan-Out | outgoing calls > 15 | operational screening rule |
+
+All rules use strict inequalities; exact counting rules are in `schema.csv` and
+the paper's Table 1.
 
 ### Class-level structural PDS sub-types
 
@@ -97,6 +107,7 @@ the function level, so no class appears in more than one split.
 | File | Description |
 |---|---|
 | `schema.csv` | Full column schema with types and counting rules |
+| `repository_manifest.csv` | All 17,285 candidate repositories with URL, split, status (analyzed / cloned_no_functions / not_cloned), and pinned commit SHA for every analyzed repository |
 | `interp1_distribution.csv` | Benchmark validation Interpretation 1 results |
 | `interp2_classifier.csv` | Benchmark validation Interpretation 2 results |
 | `interp3_direct.csv` | Benchmark validation Interpretation 3 results |
@@ -279,12 +290,12 @@ Each class in the dataset includes:
 | Anti-Pattern prevalence (train) | 7.7% |
 | Co-occurrence (both categories) | 7.0% |
 | Structurally clean functions | 75.4% |
-| Long Parameter List — Pylint κ | 0.801 ✅ Almost perfect |
-| Spaghetti Code — Pylint κ | 0.837 ✅ Almost perfect |
-| Code Smell — gold standard F1 | 0.720 |
-| Anti-Pattern — gold standard F1 | 0.567 |
-| Long Method — benchmark percentile | 87.6th vs 87.1th (r=0.082) |
-| Long Method — benchmark κ (adjusted) | 1.000 (threshold convergence) |
+| Long Parameter List — Pylint κ | 0.801 [0.798, 0.803] |
+| Excessive Branching — Pylint κ | 0.837 [0.833, 0.840] |
+| High CC — radon κ | 0.866 [0.864, 0.868] |
+| Code Smell — independent gold κ | 0.354 [0.216, 0.504] (Recall 1.000) |
+| SCS (in scope, n=63) — independent gold κ | 0.635 [0.357, 0.859] (Recall 1.000) |
+| Long Method — direct benchmark evaluation κ | 0.853 [0.774, 0.913] (fixed value: 0.350) |
 
 ### Class level
 
@@ -314,14 +325,24 @@ Large Class. Both results are reported as observed.
 The inter-rater reliability study involved two independent software engineering
 practitioners with at least three years of professional Python experience.
 
-| Category | Pre-adjudication κ | Model Precision | Model Recall | Model F1 | Model κ |
-|---|---|---|---|---|---|
-| Code Smell | 0.060 (slight) | 0.562 | 1.000 | 0.720 | 0.562 |
-| Anti-Pattern | 0.167 (slight) | 0.396 | 1.000 | 0.567 | 0.396 |
+Disagreements (86 cases) were resolved by a blinded, paid, independent
+practitioner (8+ years of Python experience); as every case is a two-way split,
+these labels form a two-of-three majority **gold standard**.
 
-The low pre-adjudication agreement is reported as a construct validity
-observation: threshold-based PDS definitions require explicit quantitative
-criteria to achieve practitioner consensus (Yamashita and Counsell, 2013).
+| Category (as administered) | Pre-adjudication κ | Model Precision | Model Recall | Model κ [95% CI] |
+|---|---|---|---|---|
+| Code Smell (n=96) | 0.060 (slight) | 0.354 | 1.000 | 0.354 [0.216, 0.504] |
+| SCS in scope (n=63) | 0.167 (slight, as administered) | 0.533 | 1.000 | 0.635 [0.357, 0.859] |
+
+Workbook notes: (1) headers use the paper's terminology, while the study was
+administered under the label *Anti-Pattern*; the instructions are released
+verbatim. (2) The first-author adjudication column records an initial internal
+step **superseded** by the independent procedure reported in the paper. (3) The
+exclusion-indicator column marks 33 functions whose sampled positive status
+rested solely on the class-level God Class flag; they are outside the
+function-level scope and excluded from the model evaluation, with all
+administered rows retained. As-administered metrics and the sensitivity
+category aggregates are in the supplementary tables.
 See `annotation/Function_Level/annotation_guide.pdf` for the full protocol.
 
 ### Class level
@@ -390,8 +411,8 @@ paper:
 **Function-level paper:**
 ```bibtex
 @article{alehaidib2026primepy,
-  title     = {Large-Scale Empirical Study of Code Smell and Anti-Pattern
-               Detection in Python Open-Source Software},
+  title     = {Large-Scale Empirical Study of Structural Poor Design
+               Symptoms in Python Open-Source Software},
   author    = {Alehaidib, Reem and Ghoneim, Ahmed and Alrashoud, Mubarak},
   journal   = {PeerJ Computer Science},
   year      = {2026},
